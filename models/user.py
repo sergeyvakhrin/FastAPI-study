@@ -1,14 +1,18 @@
-from typing import Optional, List
-
 from pydantic import BaseModel, Field, EmailStr
 
 
 class User(BaseModel):
-    id: int = Field(..., title="User ID", ge=1)
+    id: int
     name: str
-    age: Optional[int] = Field(25, title="Age of the user", ge=0, description="Must be a positive integer")
+    age: int
     email: EmailStr
-    hobbies: Optional[List[str]] = None
 
     def greet(self) -> str:
         return f"Hello, my name is {self.name}!"
+
+
+class UserCreate(BaseModel):
+    name: str
+    age: int
+    email: EmailStr
+

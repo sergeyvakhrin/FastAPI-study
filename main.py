@@ -17,7 +17,3 @@ def read_root():
 @app.get("/hello/{name}")
 def read_hellow(name):
     return {'message': f'Hello, {name}!'}
-
-
-foo_1()
-foo_2()
